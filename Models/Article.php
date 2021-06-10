@@ -8,8 +8,8 @@ class Article
     private string $content;
 
     /**
+     * Article constructor.
      * @param array
-     * constructor
      */
     public function __construct(array $data)
     {
@@ -17,12 +17,12 @@ class Article
     }
 
     /**
-     * @param array
      * hydrate method
      * loop on $data array
      * concat the set method
      * look if the method exist
      * and setParameter
+     * @param array
      */
     public function hydrate(array $data): void
     {
