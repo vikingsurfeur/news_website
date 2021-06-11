@@ -13,7 +13,12 @@ class ArticleController
         $dbName = 'news_website';
         $dbHost = 'localhost';
 
-        $this->setPdo(new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', 'root', ''));
+        try {
+            $this->setPdo(new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', 'root', ''));
+        } catch (PDOException $e) {
+            print "Error!: " . $e->getMessage() . "<br/>";
+            die();
+        }
     }
 
     /**
