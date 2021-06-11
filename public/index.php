@@ -35,11 +35,17 @@
         $controller = new ArticleController();
         $articles   = $controller->readAll();
 
-        foreach ($articles as $article)
+        foreach ($articles as $article) ?>
         {
-
+            <div class="card" style="width: 18rem;">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><?= $article->getTitle() ?></h5>
+                <p class="card-text"><?= $article->getContent() ?></p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
         }
-        endforeach;
-    ?>
+        <?php endforeach ?>;
 </body>
 </html>

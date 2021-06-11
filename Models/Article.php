@@ -93,7 +93,7 @@ class Article
      */
     public function setContent(string $content): self
     {
-        if (is_string($content) && strlen($content) > 50 && strlen($content) < 20000) {
+        if (is_string($content) && strlen($content) > 10 && strlen($content) < 20000) {
             $this->content = htmlspecialchars($content);
         }
 

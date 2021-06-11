@@ -15,3 +15,9 @@ CREATE TABLE comment (
         REFERENCES article(id)
         ON DELETE CASCADE
 );
+
+INSERT INTO article (id, title, content)
+VALUES (1, 'Comment faire du pain avec ses pieds ?', 'Avec les mains, mais avec tendresse');
+
+INSERT INTO article (id, title, content)
+VALUES (2, 'Comment faire des pates avec sa tête ?', 'Avec ses yeux, mais avec des lunettes');
