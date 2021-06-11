@@ -47,10 +47,10 @@
                         <h5 class="card-title"><?= $article->getTitle() ?></h5>
                         <p class="card-text"><?= $article->getContent() ?></p>
                         <div class="d-flex justify-content-between">
-                            <a href="../pages/updateArticle?<?= $article->getId() ?>.php" class="btn btn-warning">
+                            <a href="pages/updateArticle?<?= $article->getId() ?>.php" class="btn btn-warning">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a href="../pages/deleteArticle?<?= $article->getId() ?>.php" class="btn btn-danger">
+                            <a href="pages/deleteArticle?<?= $article->getId() ?>.php" class="btn btn-danger">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </div>
