@@ -50,7 +50,9 @@ class Article
      */
     public function setId(int $id): self
     {
-        $this->id = $id;
+        if (is_int($id)) {
+            $this->id = $id;
+        }
 
         return $this;
     }
@@ -69,7 +71,10 @@ class Article
      */
     public function setTitle(string $title): self
     {
-        $this->title = $title;
+        if (is_string($title) && strlen($title) > 3 && strlen($title) < 100)
+        {
+            $this->title = htmlspecialchars($title);
+        }
 
         return $this;
     }
@@ -88,7 +93,9 @@ class Article
      */
     public function setContent(string $content): self
     {
-        $this->content = $content;
+        if (is_string($content) && strlen($content) > 50 && strlen($content) < 20000) {
+            $this->content = htmlspecialchars($content);
+        }
 
         return $this;
     }
