@@ -3,7 +3,7 @@
 
 class ArticleController
 {
-    private string $pdo;
+    private PDO $pdo;
 
     /**
      * ArticleController constructor
@@ -12,17 +12,15 @@ class ArticleController
     {
         $dbName = 'news_website';
         $dbHost = 'localhost';
-        $dbUser = 'root';
-        $dbPass = '';
 
-        $this->setPdo(new PDO("mysql:host=$dbHost;dbname=$dbName, $dbUser, $dbPass"));
+        $this->setPdo(new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', 'root', ''));
     }
 
     /**
-     * @param string
+     * @param PDO
      * @return self
      */
-    public function setPdo(string $pdo): self
+    public function setPdo(PDO $pdo): self
     {
         $this->pdo = $pdo;
 
@@ -88,16 +86,15 @@ class ArticleController
      * @return array
      * read all method
      */
-    public function readAll(int $id): array
+    public function readAll(): array
     {
         $articles = [];
 
         $req = $this->pdo->query("SELECT * FROM `article` ORDER BY id DESC");
 
-        $req->bindValue(":id", $id, PDO::PARAM_INT);
-        foreach($req->fetchAll() as $data)
+        while ($data = $req->fetch(PDO::FETCH_ASSOC))
         {
-            $article[] = new Article($data);
+            $articles[] = new Article($data);
         }
 
         return $articles;
