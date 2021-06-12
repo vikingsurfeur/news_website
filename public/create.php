@@ -8,6 +8,8 @@ if ($_POST)
 {
     $article = new Article($_POST);
     $controller->create($article);
+
+    echo "<script>window.location.href='./index.php'</script>";
 }
 
 ?>
