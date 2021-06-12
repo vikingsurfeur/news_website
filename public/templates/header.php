@@ -36,3 +36,21 @@
     spl_autoload_register("loadClasses");
 
     ?>
+
+    <nav class="container navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.php">News Website</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse flex-lg-grow-0 ms-auto" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link d-lg-flex align-items-lg-center" href="./create.php">
+                            <i class="fas fa-plus-square me-3 fa-lg link-primary"></i>Ajouter un Article
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>

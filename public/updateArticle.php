@@ -15,7 +15,7 @@ if ($_POST)
 }
 ?>
 
-<div class="m-5">
+<div class="container">
     <h3 class="m-5">Modification de l'article : <?= $article->getTitle() ?> </h3>
     <form method="POST">
         <div class="form-group m-5">
