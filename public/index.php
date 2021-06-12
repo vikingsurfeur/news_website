@@ -7,7 +7,7 @@ $controller = new ArticleController();
 $articles = $controller->readAll();
 
 ?>
-<div class="container d-flex flex-wrap">
+<div class="container d-flex flex-wrap justify-content-between">
     <?php foreach ($articles as $article): ?>
         <div class="card p-2 m-5" style="width: 18rem;">
             <div class="card-body">
