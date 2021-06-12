@@ -51,7 +51,7 @@ class ArticleController
      */
     public function update(Article $article)
     {
-        $req = $this->pdo->prepare("UPDATE `articles` SET title = :title, content = :content WHERE id = :id");
+        $req = $this->pdo->prepare("UPDATE `article` SET title = :title, content = :content WHERE id = :id");
 
         $req->bindValue(":title", $article->getTitle(), PDO::PARAM_STR);
         $req->bindValue(":content", $article->getContent(), PDO::PARAM_STR);
