@@ -78,9 +78,10 @@ class ArticleController
      */
     public function read(int $id): Article
     {
-        $req = $this->pdo->prepare("SELECT * FROM `article` WHERE id = :id");
+        $req = $this->pdo->query("SELECT * FROM `article` WHERE id = $id");
 
-        $req->bindValue(":id", $id, PDO::PARAM_INT);
+        // prepare it's not working, give a query method
+        // $req->bindValue(":id", $id, PDO::PARAM_INT);
         $data = $req->fetch();
 
         return new Article($data);
