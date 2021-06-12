@@ -14,6 +14,9 @@ $articles = $controller->readAll();
                 <h5 class="card-title"><?= $article->getTitle() ?></h5>
                 <p class="card-text"><?= substr($article->getContent(), 0, 80) ?>...</p>
                 <div class="d-flex justify-content-between">
+                    <a href="read.php?id=<?= $article->getId() ?>" class="btn btn-success">
+                        <i class="fas fa-eye"></i>
+                    </a>
                     <a href="updateArticle.php?id=<?= $article->getId() ?>" class="btn btn-warning">
                         <i class="fas fa-edit"></i>
                     </a>
