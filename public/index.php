@@ -12,7 +12,7 @@ $articles = $controller->readAll();
         <div class="card p-2 m-5" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title"><?= $article->getTitle() ?></h5>
-                <p class="card-text"><?= $article->getDate() ?></p>
+                <p class="card-text">Publié le : <?= date('d/m/Y', strtotime($article->getDate())) ?></p>
                 <p class="card-text"><?= substr($article->getContent(), 0, 80) ?>...</p>
                 <div class="d-flex justify-content-between">
                     <a href="read.php?id=<?= $article->getId() ?>" class="btn btn-success">
