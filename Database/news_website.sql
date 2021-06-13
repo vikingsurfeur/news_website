@@ -16,6 +16,9 @@ CREATE TABLE comment (
         ON DELETE CASCADE
 )ENGINE=InnoDB;
 
+ALTER TABLE article ADD date DATETIME NOT NULL DEFAULT NOW();
+ALTER TABLE article MODIFY date DATE NOT NULL DEFAULT NOW();
+
 INSERT INTO article (id, title, content)
 VALUES (1, 'Comment faire du pain avec ses pieds ?', 'Avec les mains, mais avec tendresse');
 

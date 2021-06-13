@@ -6,6 +6,7 @@ class Article
     private int $id;
     private string $title;
     private string $content;
+    private string $date;
 
     /**
      * Article constructor.
@@ -99,4 +100,24 @@ class Article
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getDate(): string
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param string $date
+     * @return self
+     */
+    public function setDate(string $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
 }
