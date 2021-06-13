@@ -9,7 +9,7 @@ $article = $controller->read($_GET["id"]);
 
 <div class="container m-5 mx-auto">
     <h2 class="m-5"><?= $article->getTitle() ?></h2>
-    <h5 class="m-5"><?= $article->getDate() ?></h5>
+    <h5 class="m-5">Article rédigé le : <?= $article->getDate() ?></h5>
     <p class="m-5"><?= $article->getContent() ?></p>
 </div>
 
