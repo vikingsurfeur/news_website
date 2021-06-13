@@ -1,7 +1,5 @@
 <?php
 
-setlocale(LC_ALL, 'fr_FR');
-
 require_once './templates/header.php';
 
 $controller = new ArticleController();
