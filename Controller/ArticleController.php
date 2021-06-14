@@ -38,11 +38,10 @@ class ArticleController
      */
     public function create(Article $article)
     {
-        $req = $this->pdo->prepare("INSERT INTO `article` (title, content, date) VALUES (:title, :content, :date)");
+        $req = $this->pdo->prepare("INSERT INTO `article` (title, content) VALUES (:title, :content)");
 
         $req->bindValue(":title", $article->getTitle(), PDO::PARAM_STR);
         $req->bindValue(":content", $article->getContent(), PDO::PARAM_STR);
-        $req->bindValue(":date", $article->getDate(), PDO::PARAM_STR);
         $req->execute();
     }
 
@@ -90,7 +89,6 @@ class ArticleController
     }
 
     /**
-     * @param int $id
      * @return array
      * read all method
      */
