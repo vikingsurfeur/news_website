@@ -4,6 +4,7 @@
 class ArticleController
 {
     private PDO $pdo;
+    private static $instance = null;
 
     /**
      * ArticleController constructor
@@ -12,13 +13,21 @@ class ArticleController
     {
         $dbName = 'news_website';
         $dbHost = 'localhost';
+        $dbUsername = 'root';
+        $dbPassword = '';
 
-        try {
-            $this->setPdo(new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', 'root', ''));
-        } catch (PDOException $e) {
-            print "Error!: " . $e->getMessage() . "<br/>";
-            die();
+        if (self::$instance === null)
+        {
+            try {
+                $instance = $this->setPdo(
+                    new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', $dbUsername, $dbPassword));
+            } catch (PDOException $e) {
+                print "Error!: " . $e->getMessage() . "<br/>";
+                die();
+            }
         }
+
+        return $instance;
     }
 
     /**
