@@ -66,7 +66,7 @@ class ArticleController
         $req->bindValue(":title", $article->getTitle(), PDO::PARAM_STR);
         $req->bindValue(":content", $article->getContent(), PDO::PARAM_STR);
         $req->bindValue(":date", $article->getDate(), PDO::PARAM_STR);
-        $req->bindValue(":content", $article->getPriority(), PDO::PARAM_INT);
+        $req->bindValue(":priority", $article->getPriority(), PDO::PARAM_INT);
         $req->bindValue(":id", $article->getId(), PDO::PARAM_INT);
         $req->execute();
     }
