@@ -3,8 +3,27 @@ require_once './templates/header.php';
 
 // Class Controller instance
 $controller = new ArticleController();
-$articles = $controller->readAll();
+$articles = $controller->readAllByDate();
+
+// Read Method control by button
+if ($_POST)
+{
+    if(array_key_exists('button1', $_POST)) {
+        $articles = $controller->readAllByPriority();
+    }
+    else if(array_key_exists('button2', $_POST)) {
+        $articles = $controller->readAllByDate();
+    }
+}
 ?>
+
+<form class="container d-flex justify-content-around my-5" method="post">
+    <input type="submit" name="button1"
+           class="button" value="Button1" />
+
+    <input type="submit" name="button2"
+           class="button" value="Button2" />
+</form>
 
 <div class="container d-flex flex-wrap justify-content-between">
     <?php foreach ($articles as $article): ?>

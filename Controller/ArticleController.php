@@ -101,13 +101,31 @@ class ArticleController
 
     /**
      * @return array
-     * read all method
+     * read all method by date
      */
-    public function readAll(): array
+    public function readAllByDate(): array
     {
         $articles = [];
 
         $req = $this->pdo->query("SELECT * FROM `article` ORDER BY date DESC");
+
+        while ($data = $req->fetch(PDO::FETCH_ASSOC))
+        {
+            $articles[] = new Article($data);
+        }
+
+        return $articles;
+    }
+
+    /**
+     * @return array
+     * read all method by priority
+     */
+    public function readAllByPriority(): array
+    {
+        $articles = [];
+
+        $req = $this->pdo->query("SELECT * FROM `article` ORDER BY priority DESC");
 
         while ($data = $req->fetch(PDO::FETCH_ASSOC))
         {
