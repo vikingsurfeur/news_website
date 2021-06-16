@@ -8,21 +8,15 @@ $articles = $controller->readAllByDate();
 // Read Method control by button
 if ($_POST)
 {
-    if(array_key_exists('button1', $_POST)) {
-        $articles = $controller->readAllByPriority();
-    }
-    else if(array_key_exists('button2', $_POST)) {
+    (array_key_exists('btnSortByPriority', $_POST)) ?
+        $articles = $controller->readAllByPriority() :
         $articles = $controller->readAllByDate();
-    }
 }
 ?>
 
 <form class="container d-flex justify-content-around my-5" method="post">
-    <input type="submit" name="button1"
-           class="button" value="Button1" />
-
-    <input type="submit" name="button2"
-           class="button" value="Button2" />
+    <input type="submit" name="btnSortByPriority" class="btn btn-primary" value="Classer par priorité" />
+    <input type="submit" name="btnSortByDate" class="btn btn-primary" value="Classer par date de création" />
 </form>
 
 <div class="container d-flex flex-wrap justify-content-between">
@@ -34,8 +28,8 @@ if ($_POST)
             $borderPriority = "border border-2 border-primary";
         ?>
         <div class="card p-2 m-5 <?= $borderPriority ?>" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title"><?= $article->getTitle() ?></h5>
+            <div class="card-body d-flex flex-column justify-content-between">
+                <h5 class="card-title"><?= substr($article->getTitle(), 0, 75) ?>...</h5>
                 <p class="card-text">Publié le : <?= date('d/m/Y', strtotime($article->getDate())) ?></p>
                 <p class="card-text"><?= substr($article->getContent(), 0, 80) ?>...</p>
                 <div class="d-flex justify-content-between">
@@ -55,7 +49,5 @@ if ($_POST)
 </div>
 
 <?php
-
 require_once './templates/footer.php';
-
 ?>
