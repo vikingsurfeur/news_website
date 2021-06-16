@@ -11,8 +11,8 @@ $articles = $controller->readAll();
         <?php
         $borderPriority = null;
         $article->getPriority() === 1 ?
-            $borderPriority = "border border-danger" :
-            $borderPriority = "border border-primary";
+            $borderPriority = "border border-2 border-danger" :
+            $borderPriority = "border border-2 border-primary";
         ?>
         <div class="card p-2 m-5 <?= $borderPriority ?>" style="width: 18rem;">
             <div class="card-body">
