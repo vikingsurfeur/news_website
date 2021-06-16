@@ -19,6 +19,9 @@ CREATE TABLE comment (
 ALTER TABLE article ADD date DATETIME NOT NULL DEFAULT NOW();
 ALTER TABLE article MODIFY date DATE NOT NULL DEFAULT NOW();
 
+ALTER TABLE article ADD priority TINYINT;
+ALTER TABLE article MODIFY priority TINYINT NOT NULL DEFAULT 0;
+
 INSERT INTO article (id, title, content)
 VALUES (1, 'Comment faire du pain avec ses pieds ?', 'Avec les mains, mais avec tendresse');
 

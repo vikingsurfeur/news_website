@@ -7,6 +7,7 @@ class Article
     private string $title;
     private string $content;
     private string $date;
+    private int $priority;
 
     /**
      * Article constructor.
@@ -120,4 +121,22 @@ class Article
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getPriority(): int
+    {
+        return $this->priority;
+    }
+
+    /**
+     * @param int $priority
+     * @return self
+     */
+    public function setPriority(int $priority): self
+    {
+        $this->priority = $priority;
+
+        return $this;
+    }
 }

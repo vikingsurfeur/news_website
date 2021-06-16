@@ -1,15 +1,20 @@
 <?php
-
 require_once './templates/header.php';
 
 // Class Controller instance
 $controller = new ArticleController();
 $articles = $controller->readAll();
-
 ?>
+
 <div class="container d-flex flex-wrap justify-content-between">
     <?php foreach ($articles as $article): ?>
-        <div class="card p-2 m-5" style="width: 18rem;">
+        <?php
+        $borderPriority = null;
+        $article->getPriority() === 1 ?
+            $borderPriority = "border border-danger" :
+            $borderPriority = "border border-primary";
+        ?>
+        <div class="card p-2 m-5 <?= $borderPriority ?>" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title"><?= $article->getTitle() ?></h5>
                 <p class="card-text">Publié le : <?= date('d/m/Y', strtotime($article->getDate())) ?></p>

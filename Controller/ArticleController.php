@@ -47,10 +47,11 @@ class ArticleController
      */
     public function create(Article $article)
     {
-        $req = $this->pdo->prepare("INSERT INTO `article` (title, content) VALUES (:title, :content)");
+        $req = $this->pdo->prepare("INSERT INTO `article` (title, content, priority) VALUES (:title, :content, :priority)");
 
         $req->bindValue(":title", $article->getTitle(), PDO::PARAM_STR);
         $req->bindValue(":content", $article->getContent(), PDO::PARAM_STR);
+        $req->bindValue(":priority", $article->getPriority(), PDO::PARAM_INT);
         $req->execute();
     }
 
@@ -60,11 +61,12 @@ class ArticleController
      */
     public function update(Article $article)
     {
-        $req = $this->pdo->prepare("UPDATE `article` SET title = :title, content = :content, date = :date WHERE id = :id");
+        $req = $this->pdo->prepare("UPDATE `article` SET title = :title, content = :content, date = :date, priority = :priority WHERE id = :id");
 
         $req->bindValue(":title", $article->getTitle(), PDO::PARAM_STR);
         $req->bindValue(":content", $article->getContent(), PDO::PARAM_STR);
         $req->bindValue(":date", $article->getDate(), PDO::PARAM_STR);
+        $req->bindValue(":content", $article->getPriority(), PDO::PARAM_INT);
         $req->bindValue(":id", $article->getId(), PDO::PARAM_INT);
         $req->execute();
     }
