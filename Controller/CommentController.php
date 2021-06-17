@@ -15,32 +15,29 @@ class CommentController extends ServiceController
     }
 
     /**
-     * @param Article $article
+     * @param Comment $comment
      * create method
      */
-    public function create(Article $article)
+    public function create(Comment $comment)
     {
-        $req = $this->pdo->prepare("INSERT INTO `article` (title, content, priority) VALUES (:title, :content, :priority)");
+        $req = $this->pdo->prepare("INSERT INTO `comment` (content, article_id) VALUES (:content, :article_id)");
 
-        $req->bindValue(":title", $article->getTitle(), PDO::PARAM_STR);
-        $req->bindValue(":content", $article->getContent(), PDO::PARAM_STR);
-        $req->bindValue(":priority", $article->getPriority(), PDO::PARAM_INT);
+        $req->bindValue(":content", $comment->getContent(), PDO::PARAM_STR);
+        $req->bindValue(':article_id', $comment->getArticle_id(), PDO::PARAM_INT);
         $req->execute();
     }
 
     /**
-     * @param Article $article
+     * @param Comment $comment
      * update method
      */
-    public function update(Article $article)
+    public function update(Comment $comment)
     {
-        $req = $this->pdo->prepare("UPDATE `article` SET title = :title, content = :content, date = :date, priority = :priority WHERE id = :id");
+        $req = $this->pdo->prepare("UPDATE `comment` SET content = :content, date = :date, article_id = :article_id WHERE id = :id");
 
-        $req->bindValue(":title", $article->getTitle(), PDO::PARAM_STR);
-        $req->bindValue(":content", $article->getContent(), PDO::PARAM_STR);
-        $req->bindValue(":date", $article->getDate(), PDO::PARAM_STR);
-        $req->bindValue(":priority", $article->getPriority(), PDO::PARAM_INT);
-        $req->bindValue(":id", $article->getId(), PDO::PARAM_INT);
+        $req->bindValue(":content", $comment->getContent(), PDO::PARAM_STR);
+        $req->bindValue(":date", $comment->getDate(), PDO::PARAM_STR);
+        $req->bindValue(":id", $comment->getId(), PDO::PARAM_INT);
         $req->execute();
     }
 
@@ -50,7 +47,7 @@ class CommentController extends ServiceController
      */
     public function delete(int $id)
     {
-        $req = $this->pdo->prepare("DELETE FROM `article` WHERE id = :id");
+        $req = $this->pdo->prepare("DELETE FROM `comment` WHERE id = :id");
 
         $req->bindValue(":id", $id, PDO::PARAM_INT);
         $req->execute();
@@ -58,53 +55,38 @@ class CommentController extends ServiceController
 
     /**
      * @param int $id
-     * @return Article
+     * @return Comment
      * read method
      */
-    public function read(int $id): Article
+    public function read(int $id): Comment
     {
-        $req = $this->pdo->query("SELECT * FROM `article` WHERE id = $id");
+        $req = $this->pdo->prepare("SELECT * FROM `comment` WHERE id = $id");
+        $req->bindValue(":id", $id, PDO::PARAM_INT);
+        $req->execute();
 
-        // prepare it's not working, give a query method
-        // $req->bindValue(":id", $id, PDO::PARAM_INT);
         $data = $req->fetch();
 
-        return new Article($data);
+        return new Comment($data);
     }
 
     /**
+     * @param int $articleId
      * @return array
      * read all method by date
      */
-    public function readAllByDate(): array
+    public function readAllByArticleId(int $articleId): array
     {
-        $articles = [];
+        $req = $this->pdo->prepare("SELECT * FROM `comment` WHERE article_id = :article_id ORDER BY id DESC");
+        $req->bindValue(":article_id", $articleId, PDO::PARAM_INT);
+        $req->execute();
 
-        $req = $this->pdo->query("SELECT * FROM `article` ORDER BY date DESC");
+        $comments = [];
 
         while ($data = $req->fetch(PDO::FETCH_ASSOC))
         {
-            $articles[] = new Article($data);
+            $comments[] = new Comment($data);
         }
 
-        return $articles;
-    }
-
-    /**
-     * @return array
-     * read all method by priority
-     */
-    public function readAllByPriority(): array
-    {
-        $articles = [];
-
-        $req = $this->pdo->query("SELECT * FROM `article` ORDER BY priority DESC");
-
-        while ($data = $req->fetch(PDO::FETCH_ASSOC))
-        {
-            $articles[] = new Article($data);
-        }
-
-        return $articles;
+        return $comments;
     }
 }

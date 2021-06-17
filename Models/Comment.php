@@ -4,7 +4,7 @@
 class Comment extends EntityBase
 {
     private string $content;
-    private string $article_id;
+    private int $article_id;
 
     /**
      * @return string
@@ -28,18 +28,18 @@ class Comment extends EntityBase
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getArticleId(): string
+    public function getArticle_id(): int
     {
         return $this->article_id;
     }
 
     /**
-     * @param string $article_id
+     * @param int $article_id
      * @return self
      */
-    public function setArticleId(string $article_id): self
+    public function setArticle_id(int $article_id): self
     {
         $this->article_id = $article_id;
 
