@@ -1,7 +1,7 @@
 <?php
 
 
-class ArticleController extends ServiceController
+class CommentController extends ServiceController
 {
     /**
      * @param PDO
