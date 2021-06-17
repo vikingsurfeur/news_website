@@ -60,10 +60,10 @@ class CommentController extends ServiceController
      */
     public function read(int $id): Comment
     {
-        $req = $this->pdo->prepare("SELECT * FROM `comment` WHERE id = $id");
+        $req = $this->pdo->prepare("SELECT * FROM `comment` WHERE id = :id");
+
         $req->bindValue(":id", $id, PDO::PARAM_INT);
         $req->execute();
-
         $data = $req->fetch();
 
         return new Comment($data);

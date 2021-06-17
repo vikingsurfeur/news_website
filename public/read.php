@@ -16,7 +16,7 @@ if ($_POST)
 
     $commentController->create($comment);
 
-    echo "<script>window.location.href='/read?id.php'</script>";
+    echo "<script>window.location.href='./read.php?id={$_GET['id']}'</script>";
 }
 ?>
 
@@ -38,7 +38,13 @@ if ($_POST)
     <?php foreach ($comments as $comment): ?>
         <div class="m-5">
             <h5>Commentaire du <?= date('d/m/Y', strtotime($article->getDate())) ?></h5>
-            <p><?= $comment->getContent()?></p>
+            <p class="my-5"><?= $comment->getContent()?></p>
+            <a href="./updateComment.php?id=<?= $article->getId() ?>" class="btn btn-warning me-5">
+                <i class="fas fa-edit "></i>
+            </a>
+            <a href="./deleteComment.php?id=<?= $article->getId() ?>" class="btn btn-danger">
+                <i class="fas fa-trash"></i>
+            </a>
         </div>
     <?php endforeach ?>
 </div>
