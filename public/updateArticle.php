@@ -1,5 +1,4 @@
 <?php
-
 require_once './templates/header.php';
 
 $controller = new ArticleController();
@@ -39,7 +38,5 @@ if ($_POST)
 </div>
 
 <?php
-
 require_once './templates/footer.php';
-
 ?>
