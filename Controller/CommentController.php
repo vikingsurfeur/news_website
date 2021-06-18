@@ -33,7 +33,7 @@ class CommentController extends ServiceController
      */
     public function update(Comment $comment)
     {
-        $req = $this->pdo->prepare("UPDATE `comment` SET content = :content, date = :date, article_id = :article_id WHERE id = :id");
+        $req = $this->pdo->prepare("UPDATE `comment` SET content = :content, date = :date WHERE id = :id");
 
         $req->bindValue(":content", $comment->getContent(), PDO::PARAM_STR);
         $req->bindValue(":date", $comment->getDate(), PDO::PARAM_STR);
