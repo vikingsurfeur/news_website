@@ -22,37 +22,38 @@
     <title>Todo App</title>
 </head>
 <body>
-    <?php
-        // Autoloading Class function
-        function loadClasses($class)
-        {
-            if (strpos($class, "Controller")) {
-                require "../Controller/$class.php";
-            } else {
-                require "../Models/$class.php";
-            }
-        }
+<?php
+// Autoloading Class function
+function loadClasses($class)
+{
+    if (strpos($class, "Controller")) {
+        require "../Controller/$class.php";
+    } else {
+        require "../Models/$class.php";
+    }
+}
 
-        spl_autoload_register("loadClasses");
-    ?>
+spl_autoload_register("loadClasses");
+?>
 
-    <nav class="container navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center" href="./index.php">
-                <i class="far fa-check-circle fa-2x"></i>
-                <h1 class="ms-3">Todo App</h1>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse flex-lg-grow-0 ms-auto" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link d-lg-flex align-items-lg-center" href="./create.php">
-                            <i class="fas fa-plus-square me-3 fa-lg link-primary"></i>Add a Todo Item
-                        </a>
-                    </li>
-                </ul>
-            </div>
+<nav class="container navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="./index.php">
+            <i class="far fa-check-circle fa-2x"></i>
+            <h1 class="ms-3">Todo App</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-lg-grow-0 ms-auto" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link d-lg-flex align-items-lg-center" href="./create.php">
+                        <i class="fas fa-plus-square me-3 fa-lg link-primary"></i>Add a Todo Item
+                    </a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
