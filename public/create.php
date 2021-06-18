@@ -15,23 +15,23 @@ if ($_POST)
 ?>
 
 <div class="container">
-    <h3 class="m-5">Création de l'article</h3>
+    <h3 class="m-5">Create a Todo</h3>
     <form method="POST">
         <div class="form-group m-5">
-            <label for="title">Titre de l'article</label>
-            <input class="form-control" type="text" id="title" name="title" value="">
+            <label class="h5" for="title">Todo Title</label>
+            <input class="form-control mt-3" type="text" id="title" name="title" value="">
         </div>
         <div class="form-group m-5">
-            <label for="content">Contenu de l'article</label>
-            <textarea class="form-control" type="text" id="content" name="content" cols="20" rows="5" ></textarea>
+            <label class="h5" for="content">Todo Content</label>
+            <textarea class="form-control mt-3" type="text" id="content" name="content" cols="20" rows="5" ></textarea>
         </div>
         <div class="form-check m-5">
-            <label class="form-check-label" for="priority">
-                Article Important ?
+            <label class="form-check-label h6" for="priority">
+                Most Important Todo ?
             </label>
             <input class="form-check-input" type="checkbox" id="priority" name="priority">
         </div>
-        <button type="submit" class="btn btn-success m-5">Publier l'article</button>
+        <button type="submit" class="btn btn-success m-5">Save my Todo</button>
     </form>
 </div>
 

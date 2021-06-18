@@ -15,8 +15,8 @@ if ($_POST)
 ?>
 
 <form class="container d-flex justify-content-around my-5" method="post">
-    <input type="submit" name="btnSortByPriority" class="btn btn-primary" value="Classer par priorité" />
-    <input type="submit" name="btnSortByDate" class="btn btn-primary" value="Classer par date de création" />
+    <input type="submit" name="btnSortByPriority" class="btn btn-primary" value="Sort by Priority" />
+    <input type="submit" name="btnSortByDate" class="btn btn-primary" value="Sort by Date Creation" />
 </form>
 
 <div class="container d-flex flex-wrap justify-content-between">

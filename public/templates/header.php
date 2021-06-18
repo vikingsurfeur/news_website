@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr-FR">
+<html lang="en-EN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -19,7 +19,7 @@
           href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
           integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
           crossorigin="anonymous">
-    <title>Website News</title>
+    <title>Todo App</title>
 </head>
 <body>
     <?php
@@ -49,7 +49,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link d-lg-flex align-items-lg-center" href="./create.php">
-                            <i class="fas fa-plus-square me-3 fa-lg link-primary"></i>Ajouter un Article
+                            <i class="fas fa-plus-square me-3 fa-lg link-primary"></i>Add a Todo Item
                         </a>
                     </li>
                 </ul>

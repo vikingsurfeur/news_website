@@ -18,9 +18,9 @@
 
 <div class="container">
     <form method="post">
-        <label class="h3 m-5" for="content">Modifier un commentaire</label>
+        <label class="h3 m-5" for="content">Modify your Notification</label>
         <textarea name="content" id="content" placeholder="Votre commentaire" class="form-control m-5" cols="20" rows="5"><?= $comment->getContent() ?></textarea>
-        <button type="submit" class="btn btn-success m-5">Modifier votre commentaire</button>
+        <button type="submit" class="btn btn-success m-5">Modify your Notification</button>
     </form>
 </div>
 

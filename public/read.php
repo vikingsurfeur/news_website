@@ -22,23 +22,23 @@ if ($_POST)
 
 <div class="container m-5 mx-auto">
     <h2 class="m-5"><?= $article->getTitle() ?></h2>
-    <h5 class="m-5">Publié le : <?= date('d/m/Y', strtotime($article->getDate())) ?></h5>
-    <p class="m-5"><?= $article->getContent() ?></p>
+    <h6 class="m-5">Created at : <?= date('d/m/Y', strtotime($article->getDate())) ?></h6>
+    <p class="h4 m-5"><?= $article->getContent() ?></p>
 </div>
 
 <div class="container">
     <form method="post">
-        <label class="h3 m-5" for="content">Poster un commentaire</label>
-        <textarea class="form-control m-5" name="content" id="content" placeholder="Votre commentaire..." cols="20" rows="5"></textarea>
-        <button type="submit" class="btn btn-success m-5">Poster votre commentaire</button>
+        <label class="h3 m-5" for="content">Post a Todo Notification</label>
+        <textarea class="form-control m-5" name="content" id="content" placeholder="Your content..." cols="20" rows="5"></textarea>
+        <button type="submit" class="btn btn-success m-5">Post your Notification</button>
     </form>
 </div>
 
 <div class="container">
     <?php foreach ($comments as $comment): ?>
         <div class="m-5">
-            <h5>Commentaire du <?= date('d/m/Y', strtotime($article->getDate())) ?></h5>
-            <p class="my-5"><?= $comment->getContent()?></p>
+            <h5>Notification from <?= date('d/m/Y', strtotime($article->getDate())) ?></h5>
+            <p class="h4 my-5"><?= $comment->getContent()?></p>
             <a href="./updateComment.php?id=<?= $comment->getId() ?>" class="btn btn-warning me-5">
                 <i class="fas fa-edit "></i>
             </a>
