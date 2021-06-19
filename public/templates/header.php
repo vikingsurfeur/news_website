@@ -19,6 +19,9 @@
           href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
           integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
           crossorigin="anonymous">
+    <!--Personnal StyleSheet-->
+    <link href="../style/style.css"
+          rel="stylesheet">
     <title>Todo App</title>
 </head>
 <body>
@@ -36,11 +39,11 @@ function loadClasses($class)
 spl_autoload_register("loadClasses");
 ?>
 
-<nav class="container navbar navbar-expand-lg navbar-light bg-light">
+<nav class="container navbar navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center" href="./index.php">
-            <i class="far fa-check-circle fa-2x"></i>
-            <h1 class="ms-3">Todo App</h1>
+            <i class="far fa-check-circle fa-2x text-white"></i>
+            <h1 class="ms-3 text-white">Todo App</h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +54,7 @@ spl_autoload_register("loadClasses");
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-baseline" href="./create.php">
                         <i class="fas fa-plus-square me-3 fa-lg link-primary"></i>
-                        <h4>Add a Todo Item</h4>
+                        <h4 class="text-white">Add a Todo Item</h4>
                     </a>
                 </li>
             </ul>
