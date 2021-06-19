@@ -3,6 +3,10 @@ body {
     background: rgb(13,30,83);
 }
 
+textarea {
+    resize: none;
+}
+
 .card {
     color: black;
     -webkit-box-shadow: 0px 10px 50px 5px #000000;
