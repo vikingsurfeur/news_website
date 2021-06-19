@@ -39,7 +39,7 @@
                     <a href="updateArticle.php?id=<?= $article->getId() ?>" class="btn btn-warning">
                         <i class="fas fa-edit"></i>
                     </a>
-                    <a href="deleteArticle.php?id=<?= $article->getId() ?>" class="btn btn-danger">
+                    <a href="deleteArticleConfirmation.php?id=<?= $article->getId() ?>" class="btn btn-danger">
                         <i class="fas fa-trash"></i>
                     </a>
                 </div>

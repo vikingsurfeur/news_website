@@ -8,7 +8,7 @@
 
     echo "<script>
             const result = window.confirm
-                (`Are you sure to delete this comment ?\n{$commentContent}...`);
+                (`Are you sure to delete this notification ?\n{$commentContent}...`);
             
             result ? 
             window.location.href='./deleteComment.php?id={$_GET["id"]}' :
