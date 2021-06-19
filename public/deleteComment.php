@@ -7,4 +7,6 @@
     $controller->delete($_GET["id"]);
 ?>
 
-<script>window.location.href="./read.php?id=<?= $articleId ?>"</script>
+<script>
+    window.location.href="./read.php?id=<?= $articleId ?>";
+</script>

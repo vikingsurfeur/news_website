@@ -1,23 +1,23 @@
 <?php
-require_once './templates/header.php';
+    require_once './templates/header.php';
 
-$articleController = new ArticleController();
-$article = $articleController->read($_GET["id"]);
+    $articleController = new ArticleController();
+    $article = $articleController->read($_GET["id"]);
 
-$commentController = new CommentController();
-$comments = $commentController->readAllByArticleId($_GET["id"]);
+    $commentController = new CommentController();
+    $comments = $commentController->readAllByArticleId($_GET["id"]);
 
-if ($_POST)
-{
-    $comment = new Comment([
-        "content" => $_POST["content"],
-        "article_id" => $_GET["id"],
-    ]);
+    if ($_POST)
+    {
+        $comment = new Comment([
+            "content" => $_POST["content"],
+            "article_id" => $_GET["id"],
+        ]);
 
-    $commentController->create($comment);
+        $commentController->create($comment);
 
-    echo "<script>window.location.href='./read.php?id={$_GET['id']}'</script>";
-}
+        echo "<script>window.location.href='./read.php?id={$_GET['id']}'</script>";
+    }
 ?>
 
 <div class="container m-5 mx-auto">
@@ -42,14 +42,13 @@ if ($_POST)
             <a href="./updateComment.php?id=<?= $comment->getId() ?>" class="btn btn-warning me-5">
                 <i class="fas fa-edit "></i>
             </a>
-            <a href="./deleteComment.php?id=<?= $comment->getId() ?>" class="btn btn-danger">
+            <a href="./deleteCommentConfirmation.php?id=<?= $comment->getId() ?>" class="btn btn-danger">
                 <i class="fas fa-trash"></i>
             </a>
         </div>
     <?php endforeach ?>
 </div>
 
-
 <?php
-require_once './templates/footer.php';
+    require_once './templates/footer.php';
 ?>

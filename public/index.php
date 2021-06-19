@@ -1,17 +1,17 @@
 <?php
-require_once './templates/header.php';
+    require_once './templates/header.php';
 
-// Class Controller instance
-$controller = new ArticleController();
-$articles = $controller->readAllByDate();
+    // Class Controller instance
+    $controller = new ArticleController();
+    $articles = $controller->readAllByDate();
 
-// Read Method control by button
-if ($_POST)
-{
-    (array_key_exists('btnSortByPriority', $_POST)) ?
-        $articles = $controller->readAllByPriority() :
-        $articles = $controller->readAllByDate();
-}
+    // Read Method control by button
+    if ($_POST)
+    {
+        (array_key_exists('btnSortByPriority', $_POST)) ?
+            $articles = $controller->readAllByPriority() :
+            $articles = $controller->readAllByDate();
+    }
 ?>
 
 <form class="container d-flex justify-content-around my-5" method="post">
@@ -49,5 +49,5 @@ if ($_POST)
 </div>
 
 <?php
-require_once './templates/footer.php';
+    require_once './templates/footer.php';
 ?>

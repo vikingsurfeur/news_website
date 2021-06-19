@@ -1,17 +1,16 @@
 <?php
-require_once './templates/header.php';
-$controller = new ArticleController();
+    require_once './templates/header.php';
+    $controller = new ArticleController();
 
-if ($_POST)
-{
-    isset($_POST['priority']) ? $_POST['priority'] = 1 : $_POST['priority'] = 0;
+    if ($_POST)
+    {
+        isset($_POST['priority']) ? $_POST['priority'] = 1 : $_POST['priority'] = 0;
 
-    $article = new Article($_POST);
-    $controller->create($article);
+        $article = new Article($_POST);
+        $controller->create($article);
 
-    echo "<script>window.location.href='./index.php'</script>";
-}
-
+        echo "<script>window.location.href='./index.php'</script>";
+    }
 ?>
 
 <div class="container">
@@ -36,5 +35,5 @@ if ($_POST)
 </div>
 
 <?php
-require_once './templates/footer.php';
+    require_once './templates/footer.php';
 ?>

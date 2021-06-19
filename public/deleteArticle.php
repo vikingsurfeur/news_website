@@ -5,4 +5,6 @@
     $controller->delete($_GET['id']);
 ?>
 
-<script>window.location.href="index.php"</script>
+<script>
+    window.location.href="index.php";
+</script>

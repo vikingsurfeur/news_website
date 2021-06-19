@@ -1,19 +1,19 @@
 <?php
-require_once './templates/header.php';
+    require_once './templates/header.php';
 
-$controller = new ArticleController();
-$article = $controller->read($_GET["id"]);
+    $controller = new ArticleController();
+    $article = $controller->read($_GET["id"]);
 
-// Modifying article
-if ($_POST)
-{
-    isset($_POST['priority']) ? $_POST['priority'] = 1 : $_POST['priority'] = 0;
+    // Modifying article
+    if ($_POST)
+    {
+        isset($_POST['priority']) ? $_POST['priority'] = 1 : $_POST['priority'] = 0;
 
-    $article->hydrate($_POST);
-    $controller->update($article);
+        $article->hydrate($_POST);
+        $controller->update($article);
 
-    echo "<script>window.location.href='index.php'</script>";
-}
+        echo "<script>window.location.href='index.php'</script>";
+    }
 ?>
 
 <div class="container">
@@ -38,5 +38,5 @@ if ($_POST)
 </div>
 
 <?php
-require_once './templates/footer.php';
+    require_once './templates/footer.php';
 ?>
