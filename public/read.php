@@ -29,7 +29,7 @@
 <div class="container">
     <form method="post">
         <label class="h3 m-5" for="content">Post a Todo Notification</label>
-        <textarea class="form-control m-5" name="content" id="content" placeholder="Your content..." cols="20" rows="5"></textarea>
+        <textarea class="form-control m-5" name="content" id="content" placeholder="Your notification..." cols="20" rows="5"></textarea>
         <button type="submit" class="btn btn-success m-5">Post your Notification</button>
     </form>
 </div>

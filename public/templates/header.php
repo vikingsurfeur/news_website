@@ -49,8 +49,9 @@ spl_autoload_register("loadClasses");
         <div class="collapse navbar-collapse flex-lg-grow-0 ms-auto" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link d-lg-flex align-items-lg-center" href="./create.php">
-                        <i class="fas fa-plus-square me-3 fa-lg link-primary"></i>Add a Todo Item
+                    <a class="nav-link d-flex align-items-baseline" href="./create.php">
+                        <i class="fas fa-plus-square me-3 fa-lg link-primary"></i>
+                        <h4>Add a Todo Item</h4>
                     </a>
                 </li>
             </ul>
