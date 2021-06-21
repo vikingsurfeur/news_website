@@ -21,8 +21,9 @@ abstract class ServiceController
             try {
                 $instance = $this->setPdo(
                     new PDO('mysql:host='.$dbHost.';dbname='.$dbName.'', $dbUsername, $dbPassword));
-            } catch (PDOException $e) {
-                print "Error!: " . $e->getMessage() . "<br/>";
+            } catch (PDOException $error) {
+                file_put_contents('dblogs.log',$error->getMessage() . PHP_EOL, FILE_APPEND);
+                echo 'Une erreur de connexion à la base de donnée est survenue';
                 die();
             }
         }
