@@ -7,7 +7,7 @@ abstract class ServiceController
     protected static $instance = null;
 
     /**
-     * ArticleController constructor
+     * Controller constructor
      */
     public function __construct()
     {
